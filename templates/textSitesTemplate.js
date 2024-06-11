@@ -24,15 +24,13 @@ function legalNoticeHtmlMain() {
       <h2 class="h2-text-sites">Imprint</h2>
       <ul>
         <li>Verena Schranz</li>
-        <li>Tim Widl</li>
-        <li>Christian Grund</li>
         <br />
-        <p class="p-text-sites" class="p-text-sites">Musterstraße 01 <br /> 00000 Musterstadt</p>
+        <p class="p-text-sites" class="p-text-sites">Kaltschmiedweg 3 <br /> 82544 Egling</p>
       </ul>
       <h2 class="h2-text-sites">Exploring the Board</h2>
       <p class="p-text-sites">
         Email:
-        <a href="mailto:Join-Gruppe-9@mail.de"><span class="span-blue">Join-Gruppe-9@mail.de</span></a>
+        <a href="mailto:info@verenaschranz.de"><span class="span-blue">info@verenaschranz.de</span></a>
       </p>
       <h2 class="h2-text-sites">Acceptance of terms</h2>
       <p class="p-text-sites">
@@ -96,7 +94,7 @@ function legalNoticeHtmlMain() {
         of <span class="span-blue">Join</span> and/or your breach of this Legal
         Notice. <br /><br />
         For any questions or notices, please contact us at
-        <a href="mailto:Join-Gruppe-9@mail.de"><span class="span-blue">Join-Gruppe-9@mail.de</span></a>.
+        <a href="mailto:info@verenaschranz.de"><span class="span-blue">info@verenaschranz.de</span></a>.
         <br /><br />
         Date: February 1, 2024
       </p>
@@ -700,9 +698,7 @@ function privacyPolicyHtmlMain() {
       If you have any questions about this Privacy Policy, You can contact us:
     </p>
     <ul>
-      <li>By email: TimNowak195@gmail.com</li>
       <li>By email: info@verenaschranz.de</li>
-      <li>By email: christian.grund@outlook.de</li>
     </ul>
   `;
 }

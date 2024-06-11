@@ -30,14 +30,14 @@ input[type='checkbox'] {
 input[type='checkbox'] + label {
   display: inline-block;
   padding: 0 0 0 0px;
-  background: url('../../assets/img/icons/checkInput.svg') no-repeat;
+  background: url('../assets/img/icons/checkInput.svg') no-repeat;
   height: 20px;
   width: 16px;
   background-size: 100%;
 }
 
 input[type='checkbox']:checked + label {
-  background: url('../../assets/img/icons/checkedInput.svg') no-repeat;
+  background: url('../assets/img/icons/checkedInput.svg') no-repeat;
   height: 20px;
   width: 16px;
   display: inline-block;
