@@ -149,7 +149,7 @@ function resetForm() {
 function logInGuest() {
   let email = "Guest@web.de";
   let password = "Admin123";
-  user.push("2");
+  user.push("0");
   let userAsText = JSON.stringify(user);
   localStorage.setItem("user", userAsText);
   if (searchForEmail(email, password)) {
