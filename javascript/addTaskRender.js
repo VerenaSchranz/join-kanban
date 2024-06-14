@@ -97,7 +97,6 @@ async function showTaskForm(id) {
   }
 }
 
-
 /**
  * Checks if a specific contact is selected and updates the UI accordingly.
  * @param {number} i - The index of the contact.
@@ -106,20 +105,14 @@ async function showTaskForm(id) {
 function checkIfSelectedContact(i, contactNumber) {
   let userId = document.getElementById(`user-${i}`);
   let checkboxImage = document.getElementById(`checkBox-${i}`);
-
-  if (!userId || !checkboxImage || !contacts[contactNumber]) {
-    return;
-  }
-
-  if (contacts[contactNumber]['isChoosen']) {
+  if (contacts[contactNumber]['isChoosen'] === true) {
     checkboxImage.src = './assets/img/icons/check_button-white.svg';
     userId.classList.add('selected-profile-active-item');
-  } else {
-    checkboxImage.src = './assets/img/icons/checkBox.svg'; // Pfad zu Ihrem Bild für nicht ausgewählte Checkbox
+  }
+  if (contacts[contactNumber]['isChoosen'] === false && userId.classList.contains('selected-profile-active-item')) {
     userId.classList.remove('selected-profile-active-item');
   }
 }
-
 
 /**
  * Filters contacts based on the search term and renders them.
@@ -298,11 +291,9 @@ async function addAssignedContact(i, color, contactsNumber) {
   let userID = document.getElementById(`user-${i}`);
 
   addSelectedContact(assignedDropdown, checkboxImage, userID, selectedContact, color);
-  renderSelectedContacts();
+  await setIsChoosenValue(contactsNumber);
+  await renderSelectedContacts(i);
 }
-
-
-
 
 /**
  * Adds a filtered and assigned contact with specified attributes.
@@ -319,7 +310,8 @@ async function addFilteredAssignedContact(i, color, contactsNumber) {
   let userID = document.getElementById(`user-${i}`);
 
   addSelectedContact(assignedDropdown, checkboxImage, userID, selectedContact, color);
-  renderSelectedContacts();
+  await setIsChoosenValue(contactsNumber);
+  await renderSelectedContacts(i);
 }
 
 /**
@@ -333,26 +325,22 @@ async function addFilteredAssignedContact(i, color, contactsNumber) {
  */
 function addSelectedContact(assignedDropdown, checkboxImage, userID, selectedContact, color) {
   const index = selectedContacts.findIndex((contact) => contact.name === selectedContact && contact.color === color);
-  const contactIndex = contacts.findIndex((contact) => contact.name === selectedContact && contact.color === color);
-
-  if (contactIndex !== -1) {
-    if (!contacts[contactIndex]['isChoosen']) {
-      // Kontakt auswählen
-      selectedContacts.push({ name: selectedContact, color: color });
-      contacts[contactIndex]['isChoosen'] = true;
-      checkboxImage.src = './assets/img/icons/check_button-white.svg';
-      userID.classList.add('selected-profile-active-item');
-    } else {
-      // Kontakt abwählen
-      selectedContacts.splice(index, 1);
-      contacts[contactIndex]['isChoosen'] = false;
-      checkboxImage.src = './assets/img/icons/checkBox.svg';
-      userID.classList.remove('selected-profile-active-item');
+  if (!checkIfSelectedContactExist(selectedContact, color)) {
+    assignedDropdown.classList.toggle('addTask-selected');
+    if (!selectedContacts.includes(selectedContact)) {
+      if (index === -1) {
+        selectedContacts.push({
+          name: selectedContact,
+          color: color,
+        });
+      }
     }
+    checkboxImage.src = './assets/img/icons/check_button-white.svg';
+    userID.classList.add('selected-profile-active-item');
+  } else {
+    removeSelectedContact(assignedDropdown, checkboxImage, userID, selectedContact, color);
   }
-  renderSelectedContacts();
 }
-
 
 /**
  * Sets background for the selected contact based on its 'isChoosen' status.
