@@ -18,13 +18,18 @@ async function init() {
   setUserInitials();
   setUserToContacts();
   setColorToContacts();
-  setColorToActive('sidebarAddTask', 'addTask-img', 'bottomBarAddTaskMobile', 'addTaskImgMobile');
+  setColorToActive(
+    "sidebarAddTask",
+    "addTask-img",
+    "bottomBarAddTaskMobile",
+    "addTaskImgMobile"
+  );
   await resetIsChoosenValue();
   await renderAddTask();
   await renderSubTaskAddTask();
-  await showTaskForm('assignedTo');
-  changePrioToMedium('mediumContainer', 'mediumImg');
-  setMinDateToday('myDateInput');
+  await showTaskForm("assignedTo");
+  changePrioToMedium("mediumContainer", "mediumImg");
+  setMinDateToday("myDateInput");
   await setNumberOnContacts();
 }
 
@@ -33,14 +38,16 @@ async function init() {
  * When the "Enter" key is pressed, it adds a new subtask to the container.
  */
 function setupEnterKeyListenerNew() {
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('subTaskInput').addEventListener('keypress', function (event) {
-      if (event.key === 'Enter' || event.keyCode == 13) {
-        console.log('setupEnterKeyListener');
-        addSubTask('subTaskInput', 'subTaskContainer');
-        event.preventDefault();
-      }
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .getElementById("subTaskInput")
+      .addEventListener("keypress", function (event) {
+        if (event.key === "Enter" || event.keyCode == 13) {
+          console.log("setupEnterKeyListener");
+          addSubTask("subTaskInput", "subTaskContainer");
+          event.preventDefault();
+        }
+      });
   });
 }
 
@@ -66,11 +73,11 @@ async function addTask(event, id, column) {
  * @param {string} column - The column representing the current state of the task.
  */
 async function pushAddTask(id, column) {
-  let taskTitle = document.getElementById('taskTitle').value;
-  let taskDescription = document.getElementById('taskDescription').value;
+  let taskTitle = document.getElementById("taskTitle").value;
+  let taskDescription = document.getElementById("taskDescription").value;
   let taskDueDate = document.getElementById(id).value;
-  let selectedCategoryElement = document.getElementById('showSelectedCategory');
-  let selectedCategory = selectedCategoryElement.getAttribute('data-value');
+  let selectedCategoryElement = document.getElementById("showSelectedCategory");
+  let selectedCategory = selectedCategoryElement.getAttribute("data-value");
 
   addTaskValues(
     taskTitle,
@@ -116,7 +123,7 @@ async function addTaskValues(
     currentState: column,
   });
 
-  await setItem('tasks', JSON.stringify(tasks));
+  await setItem("tasks", JSON.stringify(tasks));
 }
 
 /**
@@ -125,8 +132,8 @@ async function addTaskValues(
 function clearInputValue() {
   subtasks = [];
   renderAddTask();
-  showTaskForm('assignedTo');
-  changePrioToMedium('mediumContainer', 'mediumImg');
+  showTaskForm("assignedTo");
+  changePrioToMedium("mediumContainer", "mediumImg");
   renderSubTask();
 }
 
@@ -135,8 +142,8 @@ function clearInputValue() {
  */
 function clearInputValuePopup() {
   renderAddTaskPopUp();
-  showTaskForm('assignedTo');
-  changePrioToMedium('mediumContainer', 'mediumImg');
+  showTaskForm("assignedTo");
+  changePrioToMedium("mediumContainer", "mediumImg");
   renderSubTask();
 }
 
@@ -144,10 +151,10 @@ function clearInputValuePopup() {
  * Shows a popup indicating that a task has been added to the board.
  */
 async function showPopUpAddedTaskToBoard() {
-  let popup = document.getElementById('addedTaskToBoard');
-  popup.classList.remove('d-none');
+  let popup = document.getElementById("addedTaskToBoard");
+  popup.classList.remove("d-none");
   await setTimeout(() => moveToCenter(popup), 200);
-  setTimeout(() => (window.location.href = './board.html'), 3000);
+  setTimeout(() => (window.location.href = "./board.html"), 3000);
 }
 
 /**
@@ -159,7 +166,7 @@ function changeButtonsAddTask(id) {
   let inputField = document.getElementById(id);
 
   inputField.innerHTML = changeButtonsAddTaskHtml();
-  document.getElementById('subTaskInput').focus();
+  document.getElementById("subTaskInput").focus();
 }
 
 /**
@@ -172,13 +179,17 @@ function changePrioToMedium(idContainer, idImg) {
   let prioContainer = document.getElementById(idContainer);
   let img = document.getElementById(idImg);
 
-  prioContainer.classList.add('priorityMediumActive');
-  img.src = './assets/img/AddTask/mediumPrioSign.svg';
-  selectedPrio = 'medium';
-  document.getElementById('urgentContainer').classList.remove('priorityUrgentActive');
-  document.getElementById('urgentImg').src = './assets/img/AddTask/ArrowUpPrioSign.svg';
-  document.getElementById('lowContainer').classList.remove('priorityLowActive');
-  document.getElementById('lowImg').src = './assets/img/AddTask/ArrowDownPrioSign.svg';
+  prioContainer.classList.add("priorityMediumActive");
+  img.src = "assets/img/addTask/mediumPrioSign.svg";
+  selectedPrio = "medium";
+  document
+    .getElementById("urgentContainer")
+    .classList.remove("priorityUrgentActive");
+  document.getElementById("urgentImg").src =
+    "assets/img/addTask/arrowUpPrioSign.svg";
+  document.getElementById("lowContainer").classList.remove("priorityLowActive");
+  document.getElementById("lowImg").src =
+    "assets/img/addTask/arrowDownPrioSign.svg";
 }
 
 /**
@@ -191,13 +202,17 @@ function changePrioToUrgent(idContainer, idImg) {
   let prioContainer = document.getElementById(idContainer);
   let img = document.getElementById(idImg);
 
-  prioContainer.classList.add('priorityUrgentActive');
-  img.src = './assets/img/AddTask/urgentPrioActive.svg';
-  selectedPrio = 'urgent';
-  document.getElementById('mediumContainer').classList.remove('priorityMediumActive');
-  document.getElementById('mediumImg').src = './assets/img/AddTask/mediumPrioSignInactive.svg';
-  document.getElementById('lowContainer').classList.remove('priorityLowActive');
-  document.getElementById('lowImg').src = './assets/img/AddTask/ArrowDownPrioSign.svg';
+  prioContainer.classList.add("priorityUrgentActive");
+  img.src = "assets/img/addTask/urgentPrioActive.svg";
+  selectedPrio = "urgent";
+  document
+    .getElementById("mediumContainer")
+    .classList.remove("priorityMediumActive");
+  document.getElementById("mediumImg").src =
+    "assets/img/addTask/mediumPrioSignInactive.svg";
+  document.getElementById("lowContainer").classList.remove("priorityLowActive");
+  document.getElementById("lowImg").src =
+    "assets/img/addTask/arrowDownPrioSign.svg";
 }
 
 /**
@@ -209,13 +224,19 @@ function changePrioToUrgent(idContainer, idImg) {
 function changePrioToLow(idContainer, idImg) {
   let prioContainer = document.getElementById(idContainer);
   let img = document.getElementById(idImg);
-  prioContainer.classList.add('priorityLowActive');
-  img.src = './assets/img/AddTask/lowPrioActive.svg';
-  selectedPrio = 'low';
-  document.getElementById('urgentContainer').classList.remove('priorityUrgentActive');
-  document.getElementById('urgentImg').src = './assets/img/AddTask/ArrowUpPrioSign.svg';
-  document.getElementById('mediumContainer').classList.remove('priorityMediumActive');
-  document.getElementById('mediumImg').src = './assets/img/AddTask/mediumPrioSignInactive.svg';
+  prioContainer.classList.add("priorityLowActive");
+  img.src = "assets/img/addTask/lowPrioActive.svg";
+  selectedPrio = "low";
+  document
+    .getElementById("urgentContainer")
+    .classList.remove("priorityUrgentActive");
+  document.getElementById("urgentImg").src =
+    "assets/img/addTask/arrowUpPrioSign.svg";
+  document
+    .getElementById("mediumContainer")
+    .classList.remove("priorityMediumActive");
+  document.getElementById("mediumImg").src =
+    "assets/img/addTask/mediumPrioSignInactive.svg";
 }
 
 /**
@@ -225,11 +246,19 @@ function changePrioToLow(idContainer, idImg) {
  * @param {string} id - The ID of the category element.
  */
 function selectCategory(category, id) {
-  const userStory = document.getElementById('userStory');
-  const technicalTask = document.getElementById('other');
-  const showSelectedCategory = document.getElementById('showSelectedCategory');
-  const assignedDropdownCategory = document.getElementById('assignedDropdownCategory');
-  selectCategoryIfElse(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category);
+  const userStory = document.getElementById("userStory");
+  const technicalTask = document.getElementById("other");
+  const showSelectedCategory = document.getElementById("showSelectedCategory");
+  const assignedDropdownCategory = document.getElementById(
+    "assignedDropdownCategory"
+  );
+  selectCategoryIfElse(
+    userStory,
+    technicalTask,
+    showSelectedCategory,
+    assignedDropdownCategory,
+    category
+  );
   checkIfFormIsFilled(id);
 }
 
@@ -242,13 +271,37 @@ function selectCategory(category, id) {
  * @param {HTMLElement} showSelectedCategory - The element displaying the selected category.
  * @param {HTMLElement} assignedDropdownCategory - The dropdown category element.
  */
-function selectCategoryIfElse(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category) {
-  if (category === 'user-story' || category === 'User Story') {
-    selectUserStory(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category);
-  } else if (category === 'technical-task' || category === 'Technical Task') {
-    selectTechnicalTask(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category);
+function selectCategoryIfElse(
+  userStory,
+  technicalTask,
+  showSelectedCategory,
+  assignedDropdownCategory,
+  category
+) {
+  if (category === "user-story" || category === "User Story") {
+    selectUserStory(
+      userStory,
+      technicalTask,
+      showSelectedCategory,
+      assignedDropdownCategory,
+      category
+    );
+  } else if (category === "technical-task" || category === "Technical Task") {
+    selectTechnicalTask(
+      userStory,
+      technicalTask,
+      showSelectedCategory,
+      assignedDropdownCategory,
+      category
+    );
   } else {
-    selectDefaultCategory(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category);
+    selectDefaultCategory(
+      userStory,
+      technicalTask,
+      showSelectedCategory,
+      assignedDropdownCategory,
+      category
+    );
   }
 }
 
@@ -260,12 +313,18 @@ function selectCategoryIfElse(userStory, technicalTask, showSelectedCategory, as
  * @param {HTMLElement} showSelectedCategory - The element displaying the selected category.
  * @param {HTMLElement} assignedDropdownCategory - The dropdown category element.
  */
-function selectUserStory(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category) {
-  userStory.classList.add('category-selected');
-  technicalTask.classList.remove('category-selected');
-  showSelectedCategory.setAttribute('data-value', category);
+function selectUserStory(
+  userStory,
+  technicalTask,
+  showSelectedCategory,
+  assignedDropdownCategory,
+  category
+) {
+  userStory.classList.add("category-selected");
+  technicalTask.classList.remove("category-selected");
+  showSelectedCategory.setAttribute("data-value", category);
   showSelectedCategory.innerHTML = `User Story`;
-  assignedDropdownCategory.classList.add('d-none');
+  assignedDropdownCategory.classList.add("d-none");
   categoryIsSelected = true;
 }
 
@@ -277,12 +336,18 @@ function selectUserStory(userStory, technicalTask, showSelectedCategory, assigne
  * @param {HTMLElement} showSelectedCategory - The element displaying the selected category.
  * @param {HTMLElement} assignedDropdownCategory - The dropdown category element.
  */
-function selectTechnicalTask(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category) {
-  technicalTask.classList.add('category-selected');
-  userStory.classList.remove('category-selected');
-  showSelectedCategory.setAttribute('data-value', category);
+function selectTechnicalTask(
+  userStory,
+  technicalTask,
+  showSelectedCategory,
+  assignedDropdownCategory,
+  category
+) {
+  technicalTask.classList.add("category-selected");
+  userStory.classList.remove("category-selected");
+  showSelectedCategory.setAttribute("data-value", category);
   showSelectedCategory.innerHTML = `Technical Task`;
-  assignedDropdownCategory.classList.add('d-none');
+  assignedDropdownCategory.classList.add("d-none");
   categoryIsSelected = true;
 }
 
@@ -295,13 +360,37 @@ function selectTechnicalTask(userStory, technicalTask, showSelectedCategory, ass
  * @param {HTMLElement} showSelectedCategory - The element displaying the selected category.
  * @param {HTMLElement} assignedDropdownCategory - The dropdown category element.
  */
-function selectCategoryIfElse(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category) {
-  if (category === 'user-story' || category === 'User Story') {
-    selectUserStory(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category);
-  } else if (category === 'technical-task' || category === 'Technical Task') {
-    selectTechnicalTask(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category);
+function selectCategoryIfElse(
+  userStory,
+  technicalTask,
+  showSelectedCategory,
+  assignedDropdownCategory,
+  category
+) {
+  if (category === "user-story" || category === "User Story") {
+    selectUserStory(
+      userStory,
+      technicalTask,
+      showSelectedCategory,
+      assignedDropdownCategory,
+      category
+    );
+  } else if (category === "technical-task" || category === "Technical Task") {
+    selectTechnicalTask(
+      userStory,
+      technicalTask,
+      showSelectedCategory,
+      assignedDropdownCategory,
+      category
+    );
   } else {
-    selectDefaultCategory(userStory, technicalTask, showSelectedCategory, assignedDropdownCategory, category);
+    selectDefaultCategory(
+      userStory,
+      technicalTask,
+      showSelectedCategory,
+      assignedDropdownCategory,
+      category
+    );
   }
 }
 
@@ -317,7 +406,7 @@ function deleteSubTask(number, idContainer) {
   subTaskContainer = document.getElementById(idContainer);
   subTaskContainer.innerHTML = ``;
   for (let i = 0; i < subtasks.length; i++) {
-    let nr = subtasks[i]['id'];
+    let nr = subtasks[i]["id"];
     subTaskContainer.innerHTML += subtasksAfterDeletionHtml(i, nr, idContainer);
   }
 }
@@ -331,16 +420,25 @@ function deleteSubTask(number, idContainer) {
  * @param {string} selectedContact - The selected contact.
  * @param {string} color - The color of the selected contact.
  */
-function removeSelectedContact(assignedDropdown, checkboxImage, userID, selectedContact, color) {
-  let index = selectedContacts.findIndex((contact) => contact.name === selectedContact && contact.color === color);
-  if (checkIfSelectedContactExist(selectedContact)) {
-    if (index !== -1) {
-      selectedContacts.splice(index, 1);
-    }
-    checkboxImage.src = './assets/img/icons/checkBox.svg';
-    userID.classList.remove('selected-profile-active-item');
-    assignedDropdown.classList.toggle('addTask-selected');
+function removeSelectedContact(selectedContact) {
+  let selectedContactsIndex = selectedContacts.findIndex(
+    (contact) => contact.selectedContactsId === selectedContact
+  );
+  let usedColor = selectedContacts[selectedContactsIndex].color;
+  let selectedContactsName = selectedContacts[selectedContactsIndex].name;
+  let index = selectedContacts.findIndex(
+    (contact) => contact.name === selectedContactsName
+  );
+  if (checkIfSelectedContactExist(selectedContactsName, usedColor)) {
+    selectedContacts.splice(index, 1);
+    let assignedDropdown = document.getElementById("assignedDropdown");
+    let userID = document.getElementById(`user-${selectedContact}`);
+    let checkboxImage = document.getElementById(`checkBox-${selectedContact}`);
+    checkboxImage.src = "assets/img/icons/checkBox.svg";
+    userID.classList.remove("selected-profile-active-item");
+    assignedDropdown.classList.toggle("addTask-selected");
   }
+  renderSelectedContacts();
 }
 
 /**
@@ -348,11 +446,11 @@ function removeSelectedContact(assignedDropdown, checkboxImage, userID, selected
  * @param {string} inputId - The ID of the input field.
  */
 function setMinDateToday(inputId) {
-  var today = new Date().toISOString().split('T')[0];
-  document.getElementById(inputId).setAttribute('min', today);
-  document.getElementById(inputId).addEventListener('input', function () {
+  var today = new Date().toISOString().split("T")[0];
+  document.getElementById(inputId).setAttribute("min", today);
+  document.getElementById(inputId).addEventListener("input", function () {
     var selectedDate = this.value;
-    var currentDate = new Date().toISOString().split('T')[0];
+    var currentDate = new Date().toISOString().split("T")[0];
     if (selectedDate < currentDate) {
       this.value = today;
     }
@@ -366,7 +464,7 @@ function setMinDateToday(inputId) {
  */
 function addSubTask(idInput, idContainer) {
   let subTaskInput = document.getElementById(idInput).value;
-  let subTaskError = document.getElementById('subTaskError');
+  let subTaskError = document.getElementById("subTaskError");
   let nr = subtasks.length;
   if (subTaskInput == 0) {
     subTaskError.innerHTML = /*HTML*/ `
@@ -389,7 +487,7 @@ function addSubTask(idInput, idContainer) {
  * @param {string} idContainer - The ID of the container where generated subtasks are rendered.
  */
 function addSubTaskFinalize(idInput, idContainer) {
-  document.getElementById(idInput).value = '';
+  document.getElementById(idInput).value = "";
   renderGeneratedSubTasks(idContainer);
   resetSubTaskInputField(idInput);
 }

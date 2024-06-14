@@ -123,6 +123,7 @@ async function closeTaskPopup() {
 document.addEventListener('DOMContentLoaded', function () {
   document.body.addEventListener('click', function (event) {
     let addTaskPopup = document.getElementById('addTaskPopupWrapper');
+    if(addTaskPopup){
     if (!addTaskPopup.classList.contains('d-none')) {
       let dropdownClose = document.getElementById('dropdownClose');
       if (!dropdownClose.contains(event.target)) {
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
         closeTaskPopup();
       }
     }
-  });
+  }});
 });
 
 /**
@@ -166,15 +167,15 @@ function getContactColor(selectedContactName) {
  */
 function setPrioImg(i) {
   if (tasks[i]['prio'] == 'low') {
-    let img = './assets/img/AddTask/ArrowDownPrioSign.svg';
+    let img = 'assets/img/addTask/arrowDownPrioSign.svg';
     return img;
   }
   if (tasks[i]['prio'] == 'medium') {
-    let img = './assets/img/AddTask/mediumPrioSignInactive.svg';
+    let img = 'assets/img/addTask/mediumPrioSignInactive.svg';
     return img;
   }
   if (tasks[i]['prio'] == 'urgent') {
-    let img = './assets/img/AddTask/ArrowUpPrioSign.svg';
+    let img = 'assets/img/addTask/arrowUpPrioSign.svg';
     return img;
   }
 }
@@ -230,7 +231,6 @@ function findTaskEdit(subTaskInput) {
       }
     }
   }
-  console.error('Task not found!');
   return -1;
 }
 
@@ -254,6 +254,9 @@ function findSubtaskPositionEdit(id) {
 async function editTask(i) {
   let popupInfo = document.getElementById('aTPopup');
   let popupEdit = document.getElementById('aTPopupEdit');
+  let addTaskPopUpForm = document.getElementById('addTaskPopUpForm');
+  if(addTaskPopUpForm){
+  document.getElementById('addTaskPopUpForm').remove();};
 
   popupEdit.classList.remove('d-none');
   popupInfo.classList.add('d-none');
@@ -348,7 +351,7 @@ function renderSelectedContactsEdit(i) {
     let contact = selectedContacts[j];
     let initials = getInitials(selectedContacts[j]['name']);
     let color = contact['color'];
-    content.innerHTML += renderSelectedContactsEditHtml(i, j, color, initials);
+    content.innerHTML += renderSelectedContactsEditHtml(j, color, initials);
   }
 }
 
@@ -370,7 +373,7 @@ function populateAssignedDropdown() {
     let currentUser = contacts[i]['name'];
     let initials = getInitials(currentUser);
     let color = contacts[i]['color'];
-    let assignedDropdown = document.getElementById('assignedDropdown');
+    let assignedDropdownEdit = document.getElementById('assignedDropdown');
     let username = checkForUserName();
     let contactNumber = contacts[i]['nr'];
 
