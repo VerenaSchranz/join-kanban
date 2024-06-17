@@ -321,7 +321,7 @@ function changePriorityEdit(idContainer, idImg, priority) {
   let img = document.getElementById(idImg);
   resetPriorityContainers();
   prioContainer.classList.add('priority' + priority.charAt(0).toUpperCase() + priority.slice(1) + 'Active');
-  img.src = './assets/img/AddTask/' + priority + 'PrioActive.svg';
+  img.src = './assets/img/addTask/' + priority + 'PrioActive.svg';
   selectedPrioPopupEdit = priority;
 }
 
@@ -330,11 +330,11 @@ function changePriorityEdit(idContainer, idImg, priority) {
  */
 function resetPriorityContainers() {
   document.getElementById('urgentContainerEdit').classList.remove('priorityUrgentActive');
-  document.getElementById('urgentImgEdit').src = './assets/img/AddTask/ArrowUpPrioSign.svg';
+  document.getElementById('urgentImgEdit').src = './assets/img/addTask/arrowUpPrioSign.svg';
   document.getElementById('mediumContainerEdit').classList.remove('priorityMediumActive');
-  document.getElementById('mediumImgEdit').src = './assets/img/AddTask/mediumPrioSignInactive.svg';
+  document.getElementById('mediumImgEdit').src = './assets/img/addTask/mediumPrioSignInactive.svg';
   document.getElementById('lowContainerEdit').classList.remove('priorityLowActive');
-  document.getElementById('lowImgEdit').src = './assets/img/AddTask/ArrowDownPrioSign.svg';
+  document.getElementById('lowImgEdit').src = './assets/img/addTask/arrowDownPrioSign.svg';
 }
 
 /**
@@ -362,15 +362,15 @@ function updateTaskInformation(i, taskTitle, taskDescription, taskDueDate, selec
 function setPrioEdit(prio) {
   if (prio == 'low') {
     classlistAdd('lowContainerEdit', 'priorityLowActive');
-    document.getElementById('lowImgEdit').src = './assets/img/AddTask/lowPrioActive.svg';
+    document.getElementById('lowImgEdit').src = './assets/img/addTask/lowPrioActive.svg';
   }
   if (prio == 'medium') {
     classlistAdd('mediumContainerEdit', 'priorityMediumActive');
-    document.getElementById('mediumImgEdit').src = './assets/img/AddTask/mediumPrioSign.svg';
+    document.getElementById('mediumImgEdit').src = './assets/img/addTask/mediumPrioSign.svg';
   }
   if (prio == 'urgent') {
     classlistAdd('urgentContainerEdit', 'priorityUrgentActive');
-    document.getElementById('urgentImgEdit').src = './assets/img/AddTask/urgentPrioActive.svg';
+    document.getElementById('urgentImgEdit').src = './assets/img/addTask/urgentPrioActive.svg';
   }
   selectedPrioPopupEdit = prio;
 }

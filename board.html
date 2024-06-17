@@ -16,7 +16,7 @@
     <script src="./javascript/addTaskManagement-2.js"></script>
     <script src="./javascript/contactsManagement.js"></script>
     <script src="./javascript/script.js"></script>
-    <link rel="icon" type="image/x-icon" href="assets/img/Global/join_logo_black.svg" />
+    <link rel="icon" type="image/x-icon" href="assets/img/global/join_logo_black.svg" />
   </head>
   <body onload="initBoard() " class="bodyBoard">
     <div w3-include-html="sidebar.html"></div>
@@ -29,7 +29,7 @@
           <div class="addTaskPopupContainer" id="dropdownClose">
             <div id="addTaskPopup" class="add-task-popup d-none">
               <div onclick="closeAddTaskPopup()" class="add-task-popup-close">
-                <img src="./assets/img/icons/close.svg" alt="" />
+                <img src="assets/img/icons/close.svg" alt="" />
               </div>
               <div id="boardAddTask"></div>
             </div>
@@ -40,7 +40,7 @@
           <div class="headerBoardMobile">
             <h1>Board</h1>
             <button class="buttonGreyBoard" onclick="openAddTaskPopup('toDo')">
-              <span class="add-class"><img src="./assets/img/Board/PlusButton.svg" alt="" /></span>
+              <span class="add-class"><img src="assets/img/board/plusButton.svg" alt="" /></span>
             </button>
           </div>
           <div class="search-side">
@@ -55,12 +55,12 @@
                 onkeyup="filterTasks()"
               />
               <div class="search-side-bar-vertical-line"></div>
-              <img src="./assets/img/Board/search.svg" alt="" class="search-side-input-img" />
+              <img src="assets/img/board/search.svg" alt="" class="search-side-input-img" />
             </div>
 
             <button class="buttonGrey buttonLogin mobileButtonHide" onclick="openAddTaskPopup('toDo')">
               Add Task
-              <span class="add-class"><img src="./assets/img/Board/PlusButton.svg" alt="" /></span>
+              <span class="add-class"><img src="assets/img/board/plusButton.svg" alt="" /></span>
             </button>
           </div>
         </div>

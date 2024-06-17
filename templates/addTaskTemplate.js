@@ -36,15 +36,15 @@ function addTaskHtml() {
             <div class="priority-options">
               <div id="urgentContainer" onclick="changePrioToUrgent('urgentContainer', 'urgentImg')">
                 <p>Urgent</p>
-                <img src="assets/img/AddTask/ArrowUpPrioSign.svg" alt="Prio High" id="urgentImg" />
+                <img src="assets/img/addTask/arrowUpPrioSign.svg" alt="Prio High" id="urgentImg" />
               </div>
               <div id="mediumContainer" onclick="changePrioToMedium('mediumContainer', 'mediumImg')">
                 <p>Medium</p>
-                <img src="assets/img/AddTask/mediumPrioSignInactive.svg" alt="Prio Medium" id="mediumImg" />
+                <img src="assets/img/addTask/mediumPrioSignInactive.svg" alt="Prio Medium" id="mediumImg" />
               </div>
               <div id="lowContainer" onclick="changePrioToLow('lowContainer', 'lowImg')">
                 <p>Low</p>
-                <img src="assets/img/AddTask/ArrowDownPrioSign.svg" alt="Prio Low" id="lowImg" />
+                <img src="assets/img/addTask/arrowDownPrioSign.svg" alt="Prio Low" id="lowImg" />
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@ function addTaskHtml() {
             <p>Category<span class="span-required">*</span></p>
             <div id="dropdownCategory" class="dropdown" onclick="openDropDownCategory()" >
               <div id="showSelectedCategory" data-value="">Select task category</div>
-              <img id="dropdownImgArrowCategory" class="rotate-arrow dropdown-arrow-hover" src="../assets/img/AddTask/arrow_drop.svg" alt="">
+              <img id="dropdownImgArrowCategory" class="rotate-arrow dropdown-arrow-hover" src="assets/img/addTask/arrow_drop.svg" alt="">
             </div>
             <div id="assignedDropdownCategory" class="category-dropdown d-none">
               <div id="userStory" class="flex-checkbox" data-value="user-story" onclick="selectCategory('User Story', 'myDateInput')">User Story</div>
@@ -67,10 +67,10 @@ function addTaskHtml() {
             </div>
             <div class="btns-add-task-mobile-wrapper">
               <button onclick="clearInputValue()" id="clear-mobile" class="buttonWhite" >
-                Clear <img src="assets/img/AddTask/cancel.svg" alt="Clear Icon"
+                Clear <img src="assets/img/addTask/cancel.svg" alt="Clear Icon"
               /></button>
               <button id="create-task-mobile" class="buttonGrey">
-                Create Task <img src="assets/img/AddTask/check_white.svg" alt="Check Icon"
+                Create Task <img src="assets/img/addTask/check_white.svg" alt="Check Icon"
               /></button>  
             </div>      
           </div>
@@ -82,10 +82,10 @@ function addTaskHtml() {
           </div>
           <div class="btns-down-right-add-task">
             <button onclick="clearInputValue()" id="clear" class="buttonWhite" >
-              Clear <img src="assets/img/AddTask/cancel.svg" alt="Clear Icon"
+              Clear <img src="assets/img/addTask/cancel.svg" alt="Clear Icon"
             /></button>
             <button  id="create-task" class="buttonGrey" disabled>
-              Create Task <img src="assets/img/AddTask/check_white.svg" alt="Check Icon"
+              Create Task <img src="assets/img/addTask/check_white.svg" alt="Check Icon"
             /></button>
           </div>
         </div> 
@@ -102,7 +102,7 @@ function subTaskInputHtml() {
     <p>Subtasks</p>
     <div class="inputFieldBox" id="inputFieldBox">
       <input id="subTaskInput" class="dropdownSubTaskInput" type="text" placeholder="Add new subtask" onclick="changeButtonsAddTask('inputFieldBox'), doNotClose(event)" />
-      <img onclick="addSubTask('subTaskInput', 'subTaskContainer')" class="inputImgPlus" src="assets/img/AddTask/plus.svg" alt="Add Icon" />
+      <img onclick="addSubTask('subTaskInput', 'subTaskContainer')" class="inputImgPlus" src="assets/img/addTask/plus.svg" alt="Add Icon" />
     </div>
     <div id="subTaskError" class="subtask-div-error"></div>
   `;
@@ -117,7 +117,7 @@ function subTaskInputHtmlAddTask() {
     <p>Subtasks</p>
     <div class="inputFieldBox" id="inputFieldBox">
       <input id="subTaskInput" class="dropdownSubTaskInput" type="text" placeholder="Add new subtask" onclick="changeButtonsAddTask('inputFieldBox')" />
-      <img onclick="addSubTask('subTaskInput', 'subTaskContainer')" class="inputImgPlus" src="assets/img/AddTask/plus.svg" alt="Add Icon" />
+      <img onclick="addSubTask('subTaskInput', 'subTaskContainer')" class="inputImgPlus" src="assets/img/addTask/plus.svg" alt="Add Icon" />
     </div>
     <div id="subTaskError" class="subtask-div-error"></div>
   `;
@@ -130,7 +130,7 @@ function subTaskInputHtmlAddTask() {
 function subTaskInputFieldHtml() {
   return /*html*/ `
     <input id="subTaskInput" type="text" placeholder="Add new subtask" onclick="changeButtonsAddTask('inputFieldBox')" />
-    <img onclick="addSubTask('subTaskInput', 'inputFieldBox')" class="inputImgPlus" src="assets/img/AddTask/plus.svg" alt="Add Icon" />
+    <img onclick="addSubTask('subTaskInput', 'inputFieldBox')" class="inputImgPlus" src="assets/img/addTask/plus.svg" alt="Add Icon" />
   `;
 }
 
@@ -144,8 +144,8 @@ function subTasksValueHtml(id, i) {
   return /*html*/ `
     <li id="${id}" class="subtask-div-list" onclick="doNotClose(event)" ondblclick="editSubTask(${id})"><div class="subtask-div-text">${subtasks[i]['subTaskInput']}</div>
       <div class="subtask-div-list-hover-items">
-        <img class="subtask-div-btn" onclick="editSubTask(${id})" src="./assets/img/icons/edit.svg" alt=""><span class="subTaskInputImg-vertical-added"></span>
-        <img class="subtask-div-btn" onclick="deleteSubTask(${id}, 'subTaskContainer')" src="./assets/img/icons/delete.svg" alt="">
+        <img class="subtask-div-btn" onclick="editSubTask(${id})" src="assets/img/icons/edit.svg" alt=""><span class="subTaskInputImg-vertical-added"></span>
+        <img class="subtask-div-btn" onclick="deleteSubTask(${id}, 'subTaskContainer')" src="assets/img/icons/delete.svg" alt="">
       </div>
     </li>`;
 }
@@ -160,8 +160,8 @@ function subTasksValueHtmladdTask(id, i) {
   return /*html*/ `
     <li id="${id}" class="subtask-div-list" onclick="doNotClose(event)" ondblclick="editSubTask(${id})"><div class="subtask-div-text">${subtasks[i]['subTaskInput']}</div>
       <div class="subtask-div-list-hover-items">
-        <img class="subtask-div-btn" onclick="editSubTask(${id})" src="./assets/img/icons/edit.svg" alt=""><span class="subTaskInputImg-vertical-added"></span>
-        <img class="subtask-div-btn" onclick="deleteSubTask(${id}, 'subTaskContainer')" src="./assets/img/icons/delete.svg" alt="">
+        <img class="subtask-div-btn" onclick="editSubTask(${id})" src="assets/img/icons/edit.svg" alt=""><span class="subTaskInputImg-vertical-added"></span>
+        <img class="subtask-div-btn" onclick="deleteSubTask(${id}, 'subTaskContainer')" src="assets/img/icons/delete.svg" alt="">
       </div>
     </li>`;
 }
@@ -179,8 +179,8 @@ function editSubTaskHtml(textContent, id) {
       <div class="editSubTaskButtonBox">
         <img src="assets/img/icons/delete.svg" alt="Clear Icon" class="inputImgTrash" onclick="deleteSubTask(${id}, 'subTaskContainer')"/>
         <span class="subTaskInputImg-vertical-edit"></span>
-        <img src="./assets/img/icons/checkAddTask.svg" alt="check" class="inputImgTrash" onclick="addEditSubTask(${id}, 'subTaskContainer')"/>
-        <!-- <button id="addEditSubTaskBtn" alt="check" class="inputImgTrash" onclick="addEditSubTask(${id}, 'subTaskContainer')"><img src="./assets/img/icons/checkAddTask.svg"></button> -->
+        <img src="assets/img/icons/checkAddTask.svg" alt="check" class="inputImgTrash" onclick="addEditSubTask(${id}, 'subTaskContainer')"/>
+        <!-- <button id="addEditSubTaskBtn" alt="check" class="inputImgTrash" onclick="addEditSubTask(${id}, 'subTaskContainer')"><img src="assets/img/icons/checkAddTask.svg"></button> -->
       </div>
     </div>
   `;
@@ -208,7 +208,7 @@ function showTaskFormHtml() {
     <div name="assigned">
       <div id="dropdown" class="dropdown" onclick="openDropDown('assignedDropdown', 'dropdownImgArrow')">
         <input class="contact-searchbar" onkeyup="filterAddTaskContact()" type="text" id="search" placeholder="Select contacts to assign" />
-        <img id="dropdownImgArrow" class="rotate-arrow dropdown-arrow-hover dropdown-arrow-hover" src="../assets/img/AddTask/arrow_drop.svg" alt="">
+        <img id="dropdownImgArrow" class="rotate-arrow dropdown-arrow-hover dropdown-arrow-hover" src="assets/img/addTask/arrow_drop.svg" alt="">
       </div>
     </div>
     <div id="assignedDropdown" class="d-none">
@@ -270,8 +270,8 @@ function subtasksAfterDeletionHtml(i, nr, idContainer) {
   return /*html*/ `
     <li id="${nr}" class="subtask-div-list test" ondblclick="editSubTask(${nr})"><div class="subtask-div-text">${subtasks[i]['subTaskInput']}</div>
       <div class="subtask-div-list-hover-items">
-        <img class="subtask-div-btn" onclick="editSubTask(${nr})" src="./assets/img/icons/edit.svg" alt=""><span class="subTaskInputImg-vertical-added"></span>
-        <img class="subtask-div-btn" onclick="deleteSubTask(${nr}, '${idContainer}')" src="./assets/img/icons/delete.svg" alt="">
+        <img class="subtask-div-btn" onclick="editSubTask(${nr})" src="assets/img/icons/edit.svg" alt=""><span class="subTaskInputImg-vertical-added"></span>
+        <img class="subtask-div-btn" onclick="deleteSubTask(${nr}, '${idContainer}')" src="assets/img/icons/delete.svg" alt="">
       </div>
     </li>
   `;
@@ -279,15 +279,14 @@ function subtasksAfterDeletionHtml(i, nr, idContainer) {
 
 /**
  * Generates HTML for rendering selected contacts.
- * @param {number} i - The index of the contact.
- * @param {number} j - The index of the selected contact.
+ * @param {number} contactsIndex - The index of the contact.
  * @param {string} initials - The initials of the contact.
  * @param {string} color - The color of the contact.
  * @returns {string} The HTML content for rendering selected contacts.
  */
-function renderSelectedContactsHtml(i, j, initials, color) {
+function renderSelectedContactsHtml(contactsIndex, initials, color) {
   return /*html*/ `
-    <div class="assinged-contact-overview" style="background-color:${color}" onclick="removeSelectedContact(${i}, ${j})">${initials}</div>
+    <div class="assinged-contact-overview" style="background-color:${color}">${initials}</div>
   `;
 }
 
@@ -299,9 +298,9 @@ function changeButtonsAddTaskHtml() {
   return /*html*/ `
     <input id="subTaskInput" type="text" placeholder="Add new subtask" onclick="" class="PosRel" />
     <div class="subTaskInputButtons">
-      <img class="subTaskInputImg" onclick="setValueBack('subTaskInput')" src="./assets/img/icons/close.svg" alt="">
+      <img class="subTaskInputImg" onclick="setValueBack('subTaskInput')" src="assets/img/icons/close.svg" alt="">
       <span class="subTaskInputImg-vertical"></span>
-      <img class="subTaskInputImg checkImg" id="subTaskInputImgAdd" onclick="addSubTask('subTaskInput', 'subTaskContainer')" src="./assets/img/icons/checkAddTask.svg" alt="">
+      <img class="subTaskInputImg checkImg" id="subTaskInputImgAdd" onclick="addSubTask('subTaskInput', 'subTaskContainer')" src="assets/img/icons/checkAddTask.svg" alt="">
     </div>
   `;
 }

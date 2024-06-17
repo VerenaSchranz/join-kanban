@@ -60,7 +60,7 @@ function subTaskInputEditHtml(i) {
   <span class="aTPopupSpan">Subtasks</span>
           <div class="inputFieldBox" id="inputFieldBoxEdit">
             <input id="subTaskInputEdit" type="text" placeholder="Add new subtask" onclick="changeButtonsAddTaskEdit('inputFieldBoxEdit', ${i})" />
-            <img onclick="addSubTaskEdit('subTaskInputEdit', 'subTaskContainer', ${i})" class="inputImgPlus" src="assets/img/AddTask/plus.svg" alt="Add Icon" />
+            <img onclick="addSubTaskEdit('subTaskInputEdit', 'subTaskContainer', ${i})" class="inputImgPlus" src="assets/img/addTask/plus.svg" alt="Add Icon" />
           </div>
           <div id="subTaskErrorEdit" class="subtask-div-error"></div>
   `;
@@ -73,7 +73,7 @@ function subTaskInputEditHtml(i) {
 function subTaskInputFieldHtml() {
   return /*html*/ `
   <input id="subTaskInput" type="text" placeholder="Add new subtask" onclick="changeButtonsAddTask('inputFieldBox')" />
-  <img onclick="addSubTask('subTaskInput', 'inputFieldBox')" class="inputImgPlus" src="assets/img/AddTask/plus.svg" alt="Add Icon" />
+  <img onclick="addSubTask('subTaskInput', 'inputFieldBox')" class="inputImgPlus" src="assets/img/addTask/plus.svg" alt="Add Icon" />
   `;
 }
 
@@ -204,15 +204,15 @@ function generateTaskPopupHTML(i, img, date) {
               <div class="priority-options-edit">
                 <div id="urgentContainerEdit" onclick="changePriorityEdit('urgentContainerEdit', 'urgentImgEdit', 'urgent')">
                   <p class="aTPopupP">Urgent</p>
-                  <img src="assets/img/AddTask/ArrowUpPrioSign.svg" alt="Prio High" id="urgentImgEdit" />
+                  <img src="assets/img/addTask/arrowUpPrioSign.svg" alt="Prio High" id="urgentImgEdit" />
                 </div>
                 <div id="mediumContainerEdit" onclick="changePriorityEdit('mediumContainerEdit', 'mediumImgEdit', 'medium')">
                   <p class="aTPopupP">Medium</p>
-                  <img src="assets/img/AddTask/MediumPrioSignInactive.svg" alt="Prio Medium" id="mediumImgEdit" />
+                  <img src="assets/img/addTask/mediumPrioSignInactive.svg" alt="Prio Medium" id="mediumImgEdit" />
                 </div>
                 <div id="lowContainerEdit" onclick="changePriorityEdit('lowContainerEdit', 'lowImgEdit', 'low')">
                   <p class="aTPopupP">Low</p>
-                  <img src="assets/img/AddTask/ArrowDownPrioSign.svg" alt="Prio Low" id="lowImgEdit" />
+                  <img src="assets/img/addTask/arrowDownPrioSign.svg" alt="Prio Low" id="lowImgEdit" />
                 </div>
               </div>
             </div>
@@ -223,7 +223,7 @@ function generateTaskPopupHTML(i, img, date) {
               <div id="dropdownCategory" class="dropdownEdit" onclick="openDropDownCategoryEdit()">
                 <div id="showSelectedCategoryEdit" data-value="">Select task category
                 </div>
-                <img id="dropdownImgArrowCategoryEdit" class="rotate-arrow dropdown-arrow-hover" src="../assets/img/AddTask/arrow_drop.svg" alt="">
+                <img id="dropdownImgArrowCategoryEdit" class="rotate-arrow dropdown-arrow-hover" src="../assets/img/addTask/arrow_drop.svg" alt="">
               </div>
               <div id="assignedDropdownCategoryEdit" class="category-dropdown d-none">
                 <div id="userStoryEdit" class="flex-checkbox" data-value="user-story" onclick="selectCategoryEdit('User Story', 'myDateInputEdit')">User Story
@@ -243,7 +243,7 @@ function generateTaskPopupHTML(i, img, date) {
 
           <div class="btn-edit-task">
             <button id="create-task" class="buttonGrey">
-              Ok <img src="assets/img/AddTask/check_white.svg" alt="Check Icon"
+              Ok <img src="assets/img/addTask/check_white.svg" alt="Check Icon"
             /></button>
           </div>
         </div>
@@ -284,7 +284,7 @@ function subTasksValueHtml(id, i) {
 
 function addTaskPopUpHtml(column) {
   return /*html*/ `
-    <form onsubmit="addTaskPopUp('myDateInputPopup', '${column}'); return false" class="formAddTask">
+    <form onsubmit="addTaskPopUp('myDateInputPopup', '${column}'); return false" class="formAddTask" id="addTaskPopUp">
     <div class="container-left-right-wrapper">
       <section class="container-left-popup">
       
@@ -324,15 +324,15 @@ function addTaskPopUpHtml(column) {
           <div class="priority-options">
             <div id="urgentContainer" onclick="changePrioToUrgent('urgentContainer', 'urgentImg')">
               <p>Urgent</p>
-              <img src="assets/img/AddTask/ArrowUpPrioSign.svg" alt="Prio High" id="urgentImg" />
+              <img src="assets/img/addTask/arrowUpPrioSign.svg" alt="Prio High" id="urgentImg" />
             </div>
             <div id="mediumContainer" onclick="changePrioToMedium('mediumContainer', 'mediumImg')">
               <p>Medium</p>
-              <img src="assets/img/AddTask/mediumPrioSignInactive.svg" alt="Prio Medium" id="mediumImg" />
+              <img src="assets/img/addTask/mediumPrioSignInactive.svg" alt="Prio Medium" id="mediumImg" />
             </div>
             <div id="lowContainer" onclick="changePrioToLow('lowContainer', 'lowImg')">
               <p>Low</p>
-              <img src="assets/img/AddTask/ArrowDownPrioSign.svg" alt="Prio Low" id="lowImg" />
+              <img src="assets/img/addTask/arrowDownPrioSign.svg" alt="Prio Low" id="lowImg" />
             </div>
           </div>
         </div>
@@ -341,7 +341,7 @@ function addTaskPopUpHtml(column) {
           <p>Category<span class="span-required">*</span></p>
           <div id="dropdownCategory" class="dropdown" onclick="openDropDownCategory()">
             <div id="showSelectedCategory" data-value="">Select task category</div>
-            <img id="dropdownImgArrowCategory" class="rotate-arrow dropdown-arrow-hover" src="../assets/img/AddTask/arrow_drop.svg" alt="">
+            <img id="dropdownImgArrowCategory" class="rotate-arrow dropdown-arrow-hover" src="../assets/img/addTask/arrow_drop.svg" alt="">
           </div>
           <div id="assignedDropdownCategory" class="category-dropdown d-none">
             <div id="userStory" class="flex-checkbox" data-value="user-story" onclick="selectCategory('User Story', 'myDateInputPopup')">User Story</div>
@@ -359,10 +359,10 @@ function addTaskPopUpHtml(column) {
           </div>
           <div class="btns-add-task-mobile-wrapper">
             <button onclick="clearInputValuePopup()" id="clear-mobile" class="buttonWhite" >
-              Clear <img src="assets/img/AddTask/cancel.svg" alt="Clear Icon"
+              Clear <img src="assets/img/addTask/cancel.svg" alt="Clear Icon"
             /></button>
             <button id="create-task-mobile" class="buttonGrey">
-              Create Task <img src="assets/img/AddTask/check_white.svg" alt="Check Icon"
+              Create Task <img src="assets/img/addTask/check_white.svg" alt="Check Icon"
             /></button>  
           </div>      
         </div>
@@ -375,10 +375,10 @@ function addTaskPopUpHtml(column) {
         </div>
         <div class="btns-down-right-add-task">
           <button onclick="clearInputValuePopup(), doNotClose(event)" id="clear" class="buttonWhite" >
-            Clear <img src="assets/img/AddTask/cancel.svg" alt="Clear Icon"
+            Clear <img src="assets/img/addTask/cancel.svg" alt="Clear Icon"
           /></button>
           <button  id="create-task" class="buttonGrey" disabled>
-            Create Task <img src="assets/img/AddTask/check_white.svg" alt="Check Icon"
+            Create Task <img src="assets/img/addTask/check_white.svg" alt="Check Icon"
           /></button>
         </div>
       </div>    
@@ -445,9 +445,9 @@ function assignedToUserYouHtml(i, color, currentUser, initials) {
  * @param {string} initials - The initials of the contact.
  * @returns {string} The HTML content for rendering the selected contact for editing.
  */
-function renderSelectedContactsEditHtml(i, j, color, initials) {
+function renderSelectedContactsEditHtml(contactsIndex, color, initials) {
   return /*html*/ `
-    <div class="assinged-contact-overview" style="background-color:${color}" onclick="removeSelectedContact(${i}, ${j})">${initials}</div>
+    <div class="assinged-contact-overview" style="background-color:${color}">${initials}</div>
     `;
 }
 
@@ -460,7 +460,7 @@ function showTaskFormEditHtml() {
     <div name="assigned">
       <div id="dropdownEdit" class="dropdown" onclick="openDropDown('assignedDropdown', 'dropdownImgArrow')">
         <input class="contact-searchbar" onkeyup="filterAddTaskContact()" type="text" id="search" placeholder="Select contacts to assign" />
-        <img id="dropdownImgArrow" class="rotate-arrow dropdown-arrow-hover dropdown-arrow-hover" src="../assets/img/AddTask/arrow_drop.svg" alt="">
+        <img id="dropdownImgArrow" class="rotate-arrow dropdown-arrow-hover dropdown-arrow-hover" src="../assets/img/addTask/arrow_drop.svg" alt="">
       </div>
     </div>
     <div id="assignedDropdown" class="d-none">

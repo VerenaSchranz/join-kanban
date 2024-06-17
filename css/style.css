@@ -3121,8 +3121,7 @@ form {
   flex-direction: column;
   gap: 8px;
   position: relative;
-  display: inline-block;
-  margin-top: -32px; }
+  display: inline-block; }
 
 .dropdownAssignedEdit {
   display: flex;
