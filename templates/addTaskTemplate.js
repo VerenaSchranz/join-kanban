@@ -286,7 +286,7 @@ function subtasksAfterDeletionHtml(i, nr, idContainer) {
  */
 function renderSelectedContactsHtml(contactsIndex, initials, color) {
   return /*html*/ `
-    <div class="assinged-contact-overview" style="background-color:${color}" onclick="removeSelectedContact(${selectedContacts[contactsIndex].selectedContactsId})">${initials}</div>
+    <div class="assinged-contact-overview" style="background-color:${color}">${initials}</div>
   `;
 }
 
