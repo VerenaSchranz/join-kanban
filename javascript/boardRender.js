@@ -93,7 +93,7 @@ async function renderSubtasks(i, id) {
 function loadSelectedContacts(i) {
   clearSelectedContactsArray();
   addSelectedContactsFromTask(i);
-  deleteSelectedContactsFromTask(i);
+  // deleteSelectedContactsFromTask(i);
   renderSelectedContactsEdit(i);
 }
 
